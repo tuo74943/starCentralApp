@@ -1,14 +1,16 @@
 package io.rosal.starcentral
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.AttributeSet
-import android.view.View
+import android.util.Log
 import android.widget.Toast
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import androidx.core.view.MenuHost
 
-class MainActivity : AppCompatActivity(), DashboardFragment.DashboardController{
+class MainActivity : AppCompatActivity(), DashboardFragment.DashboardInterface{
+
+    companion object{
+        const val TAG = "MainActivity"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,7 +18,22 @@ class MainActivity : AppCompatActivity(), DashboardFragment.DashboardController{
     }
 
     override fun addNewItem() {
-        Toast.makeText(applicationContext, "Adding adding something!", Toast.LENGTH_SHORT).show()
+        Log.d(TAG, "Adding a new item")
     }
 
+    override fun logout() {
+        incomingFeatureToast()
+    }
+
+    override fun loadAbout() {
+        incomingFeatureToast()
+    }
+
+    override fun loadProfile() {
+        incomingFeatureToast()
+    }
+
+    private fun incomingFeatureToast(){
+        Toast.makeText(applicationContext, "Incoming feature, TM", Toast.LENGTH_SHORT).show()
+    }
 }
