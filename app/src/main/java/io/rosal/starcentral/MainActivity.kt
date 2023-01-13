@@ -2,9 +2,15 @@ package io.rosal.starcentral
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
+import androidx.core.view.MenuHost
 
 class MainActivity : AppCompatActivity(), DashboardFragment.DashboardInterface{
+
+    companion object{
+        const val TAG = "MainActivity"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -12,7 +18,7 @@ class MainActivity : AppCompatActivity(), DashboardFragment.DashboardInterface{
     }
 
     override fun addNewItem() {
-        Toast.makeText(applicationContext, "Adding adding something!", Toast.LENGTH_SHORT).show()
+        Log.d(TAG, "Adding a new item")
     }
 
     override fun logout() {
@@ -27,7 +33,7 @@ class MainActivity : AppCompatActivity(), DashboardFragment.DashboardInterface{
         incomingFeatureToast()
     }
 
-    fun incomingFeatureToast(){
+    private fun incomingFeatureToast(){
         Toast.makeText(applicationContext, "Incoming feature, TM", Toast.LENGTH_SHORT).show()
     }
 }
