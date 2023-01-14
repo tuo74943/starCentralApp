@@ -20,7 +20,7 @@
         app:hintAnimationEnabled="true"
         app:hintEnabled="true"
         app:hintTextColor="@color/teal_700"
-        app:layout_constraintEnd_toStartOf="@+id/calandarImageView"
+        app:layout_constraintEnd_toStartOf="@+id/calandarImageButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/workFormTitle">
 
@@ -62,7 +62,7 @@
         android:dropDownWidth="match_parent"
         android:minHeight="48dp"
         android:spinnerMode="dropdown"
-        app:layout_constraintEnd_toEndOf="@+id/calandarImageView"
+        app:layout_constraintEnd_toEndOf="@+id/calandarImageButton"
         app:layout_constraintStart_toStartOf="@+id/dateInputLayout"
         app:layout_constraintTop_toBottomOf="@+id/dateInputLayout" />
 
@@ -90,13 +90,11 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <ImageView
-        android:id="@+id/calandarImageView"
+    <ImageButton
+        android:id="@+id/calandarImageButton"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
-        android:contentDescription="@string/calandar_image"
         android:src="@drawable/calendar_month_48px"
         app:layout_constraintBottom_toBottomOf="@+id/dateInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
