@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 
 class WorkItemListFragment : Fragment() {
 
-    lateinit var recyclerView: RecyclerView
-    lateinit var adapter : WorkItemAdapter
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter : WorkItemAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -29,6 +29,14 @@ class WorkItemListFragment : Fragment() {
         list.addWorkItem(WorkItem("The Commonwealth Apartments", "1/11/2023", "Fitness Room", null))
         list.addWorkItem(WorkItem("The Wynnewood", "1/13/2023", "Apartment 23E One Bedroom", null))
         list.addWorkItem(WorkItem("The Wynnewood", "1/13/2023", "Apartment 23K Two Bedrooms", null))
+        list.addWorkItem(WorkItem("Arch Luxury Apartments", "1/14/2023", "Apartment 901 One Bedroom", null))
+        list.addWorkItem(WorkItem("Arch Luxury Apartments", "1/14/2023", "Apartment 411 One Bedroom", null))
+        list.addWorkItem(WorkItem("The Commonwealth Apartments", "1/11/2023", "Fitness Room", null))
+        list.addWorkItem(WorkItem("The Wynnewood", "1/13/2023", "Apartment 23E One Bedroom", null))
+        list.addWorkItem(WorkItem("The Wynnewood", "1/13/2023", "Apartment 23K Two Bedrooms", null))
+        list.addWorkItem(WorkItem("Arch Luxury Apartments", "1/14/2023", "Apartment 901 One Bedroom", null))
+        list.addWorkItem(WorkItem("Arch Luxury Apartments", "1/14/2023", "Apartment 411 One Bedroom", null))
+
 
 
         adapter = WorkItemAdapter(requireContext(), list) { workItem: WorkItem -> onClick(workItem) }

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WorkFormFragment">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dateInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:hint="@string/date"
+        app:boxBackgroundColor="@color/white"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="@color/teal_200"
+        app:boxStrokeWidth="1dp"
+        app:hintAnimationEnabled="true"
+        app:hintEnabled="true"
+        app:hintTextColor="@color/teal_700"
+        app:layout_constraintEnd_toStartOf="@+id/calandarImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/workFormTitle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/workFormTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/work_form"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:dropDownWidth="match_parent"
+        android:minHeight="48dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="@+id/calandarImageView"
+        app:layout_constraintStart_toStartOf="@+id/dateInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/dateInputLayout" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/descriptorInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="@string/descriptor"
+        app:boxBackgroundColor="@color/white"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="@color/teal_200"
+        app:boxStrokeWidth="1dp"
+        app:hintAnimationEnabled="true"
+        app:hintEnabled="true"
+        app:hintTextColor="@color/teal_700"
+        app:layout_constraintEnd_toEndOf="@+id/spinner"
+        app:layout_constraintStart_toStartOf="@+id/spinner"
+        app:layout_constraintTop_toBottomOf="@+id/spinner">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/calandarImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:contentDescription="@string/calandar_image"
+        android:src="@drawable/calendar_month_48px"
+        app:layout_constraintBottom_toBottomOf="@+id/dateInputLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dateInputLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
