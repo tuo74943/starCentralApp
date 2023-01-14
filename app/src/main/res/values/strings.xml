@@ -6,4 +6,9 @@
     <string name="logout">Logout</string>
     <string name="profile">Profile</string>
     <string name="about">About</string>
+    <string name="work_form">Work Form</string>
+    <string name="submit">Submit</string>
+    <string name="date">Date</string>
+    <string name="descriptor">Descriptor</string>
+    <string name="calandar_image">Calandar image</string>
 </resources>

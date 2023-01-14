@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.core.view.MenuHost
+import androidx.navigation.Navigation
 
 class MainActivity : AppCompatActivity(), DashboardFragment.DashboardInterface{
 
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity(), DashboardFragment.DashboardInterface{
 
     override fun addNewItem() {
         Log.d(TAG, "Adding a new item")
+        Navigation.findNavController(findViewById(R.id.dashFragmentContainer)).navigate(R.id.action_dashboardFragment_to_workFormFragment)
     }
 
     override fun logout() {

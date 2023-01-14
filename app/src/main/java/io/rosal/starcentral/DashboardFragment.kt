@@ -10,6 +10,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 class DashboardFragment : Fragment() {
 
     private lateinit var fab : FloatingActionButton
+    private lateinit var menuProvider : MenuProvider
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -27,8 +28,13 @@ class DashboardFragment : Fragment() {
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        (activity as MenuHost).removeMenuProvider(menuProvider)
+    }
+
     private fun setupMenu() {
-        (activity as MenuHost).addMenuProvider(object : MenuProvider {
+        menuProvider = object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
                 menuInflater.inflate(R.menu.dashboad_menu, menu)
             }
@@ -50,7 +56,8 @@ class DashboardFragment : Fragment() {
                 }
                 return false
             }
-        })
+        }
+        (activity as MenuHost).addMenuProvider(menuProvider)
     }
 
 
