@@ -24,4 +24,9 @@
             app:popUpTo="@id/dashboardFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/additionFragment"
+        android:name="io.rosal.starcentral.AdditionFragment"
+        android:label="fragment_addition"
+        tools:layout="@layout/fragment_addition" />
 </navigation>
