@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import io.rosal.starcentral.data.WorkItem
+import io.rosal.starcentral.data.WorkItemList
 
 class WorkItemAdapter(_context : Context, _list : WorkItemList, _ocl : (WorkItem) -> Unit) : RecyclerView.Adapter<WorkItemAdapter.WorkItemViewHolder>(){
 

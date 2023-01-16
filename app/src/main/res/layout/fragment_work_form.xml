@@ -3,15 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".WorkFormFragment">
+    android:layout_height="wrap_content"
+    tools:context=".fragments.WorkFormFragment">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/dateInputLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:hint="@string/date"
         app:boxBackgroundColor="@color/white"
         app:boxBackgroundMode="outline"
@@ -20,7 +21,7 @@
         app:hintAnimationEnabled="true"
         app:hintEnabled="true"
         app:hintTextColor="@color/teal_700"
-        app:layout_constraintEnd_toStartOf="@+id/calandarImageButton"
+        app:layout_constraintEnd_toStartOf="@+id/calendarImageButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -33,15 +34,15 @@
 
     <Button
         android:id="@+id/submitButton"
-        android:layout_width="0dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginBottom="32dp"
-        android:text="add new work"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/string_continue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descriptorInputLayout" />
 
     <Spinner
         android:id="@+id/spinner"
@@ -51,7 +52,7 @@
         android:dropDownWidth="match_parent"
         android:minHeight="48dp"
         android:spinnerMode="dropdown"
-        app:layout_constraintEnd_toEndOf="@+id/calandarImageButton"
+        app:layout_constraintEnd_toEndOf="@+id/calendarImageButton"
         app:layout_constraintStart_toStartOf="@+id/dateInputLayout"
         app:layout_constraintTop_toBottomOf="@+id/dateInputLayout" />
 
@@ -80,13 +81,14 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <ImageButton
-        android:id="@+id/calandarImageButton"
+        android:id="@+id/calendarImageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="16dp"
         android:src="@drawable/calendar_month_48px"
         app:layout_constraintBottom_toBottomOf="@+id/dateInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/dateInputLayout" />
+        app:layout_constraintTop_toTopOf="@+id/dateInputLayout"
+        android:contentDescription="@string/calendar_content_desc" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

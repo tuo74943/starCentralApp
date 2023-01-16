@@ -1,7 +1,6 @@
 <resources>
-    <string name="app_name">StarCentral</string>
+    <string name="app_name">Star Central</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="fab_content_descriptor">Add work item</string>
     <string name="logout">Logout</string>
     <string name="profile">Profile</string>
@@ -10,5 +9,11 @@
     <string name="submit">Submit</string>
     <string name="date">Date</string>
     <string name="descriptor">Descriptor</string>
-    <string name="calandar_image">Calandar image</string>
+    <string name="calendar_image">Calendar image</string>
+    <string name="details">Details</string>
+    <string name="custom_additional">Custom Additional</string>
+    <string name="price">Price</string>
+    <string name="add">Add</string>
+    <string name="string_continue">continue</string>
+    <string name="calendar_content_desc">Image of a calendar</string>
 </resources>

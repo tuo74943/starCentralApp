@@ -1,4 +1,4 @@
-package io.rosal.starcentral
+package io.rosal.starcentral.fragments
 
 import android.os.Bundle
 import android.view.*
@@ -6,6 +6,7 @@ import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import io.rosal.starcentral.R
 
 class DashboardFragment : Fragment() {
 

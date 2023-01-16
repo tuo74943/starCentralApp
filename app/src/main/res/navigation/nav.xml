@@ -6,7 +6,7 @@
     app:startDestination="@id/dashboardFragment">
     <fragment
         android:id="@+id/dashboardFragment"
-        android:name="io.rosal.starcentral.DashboardFragment"
+        android:name="io.rosal.starcentral.fragments.DashboardFragment"
         android:label="fragment_dashboard"
         tools:layout="@layout/fragment_dashboard" >
         <action
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/workFormFragment"
-        android:name="io.rosal.starcentral.WorkFormFragment"
+        android:name="io.rosal.starcentral.fragments.WorkFormFragment"
         android:label="fragment_work_form"
         tools:layout="@layout/fragment_work_form" >
         <action
@@ -26,7 +26,7 @@
     </fragment>
     <fragment
         android:id="@+id/additionFragment"
-        android:name="io.rosal.starcentral.AdditionFragment"
+        android:name="io.rosal.starcentral.fragments.AdditionalFormFragment"
         android:label="fragment_addition"
-        tools:layout="@layout/fragment_addition" />
+        tools:layout="@layout/fragment_addtional_form" />
 </navigation>

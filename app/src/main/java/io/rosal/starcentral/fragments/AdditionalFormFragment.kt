@@ -1,7 +1,6 @@
-package io.rosal.starcentral
+package io.rosal.starcentral.fragments
 
 import android.os.Bundle
-import android.text.Editable
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,12 +11,13 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
-import androidx.core.view.get
 import androidx.core.view.isGone
-import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import io.rosal.starcentral.R
+import io.rosal.starcentral.data.Charge
+import io.rosal.starcentral.data.ChargeList
 
-class AdditionFragment : Fragment() {
+class AdditionalFormFragment : Fragment() {
     private lateinit var layout : View
     private lateinit var spinner : Spinner
     private lateinit var priceTextInputLayout: TextInputLayout
@@ -26,6 +26,8 @@ class AdditionFragment : Fragment() {
     private lateinit var addButton : Button
 
     private lateinit var selection : String
+
+    private val chargeList = ChargeList()
 
     private val testData = arrayOf(
         "General Painting",
@@ -46,7 +48,7 @@ class AdditionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        layout = inflater.inflate(R.layout.fragment_addition, container, false)
+        layout = inflater.inflate(R.layout.fragment_addtional_form, container, false)
         spinner = layout.findViewById(R.id.spinner2)
         priceTextInputLayout = layout.findViewById(R.id.priceTextInputLayout)
         customTextInputLayout = layout.findViewById(R.id.customTextInputLayout)
@@ -79,7 +81,7 @@ class AdditionFragment : Fragment() {
             val price = priceInput.text.toString()
             val details = detailsInput.text.toString()
             var custom : String? = null
-            var customInput : EditText
+            val customInput : EditText
 
             if(selection == "Custom"){
                 customInput = customTextInputLayout.editText!!
@@ -94,15 +96,17 @@ class AdditionFragment : Fragment() {
             priceInput.text.clear()
             detailsInput.text.clear()
 
-
             //Send information where needed! Depending if it was a custom choice
-            if(custom.isNullOrEmpty()){
+            val charge : Charge = if(custom.isNullOrEmpty()){
                 Log.d("TEST", "Spinner Choice : ${spinnerChoice}\nPrice : ${price}\nDetails : ${details}\n" )
-            }
-            else{
-                Log.d("TEST", "Custom Choice : ${custom}\nPrice : ${price}\nDetails : ${details}\n" )
+                Charge(spinnerChoice, price, details)
 
+            } else{
+                Log.d("TEST", "Custom Choice : ${custom}\nPrice : ${price}\nDetails : ${details}\n" )
+                Charge(custom, price, details)
             }
+
+            chargeList.addCharge(charge)
         }
     }
 }

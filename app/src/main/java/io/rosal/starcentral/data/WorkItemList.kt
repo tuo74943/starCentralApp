@@ -1,4 +1,4 @@
-package io.rosal.starcentral
+package io.rosal.starcentral.data
 
 class WorkItemList {
     private val workItemList = ArrayList<WorkItem>()
@@ -10,7 +10,7 @@ class WorkItemList {
         workItemList.addAll(newList.workItemList)
     }
 
-    fun getWorkItem(index : Int) : WorkItem{
+    fun getWorkItem(index : Int) : WorkItem {
         return workItemList[index]
     }
 

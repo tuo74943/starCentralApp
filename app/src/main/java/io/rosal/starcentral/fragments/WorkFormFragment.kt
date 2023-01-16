@@ -1,39 +1,47 @@
-package io.rosal.starcentral
+package io.rosal.starcentral.fragments
 
-import android.app.DatePickerDialog
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.FrameLayout
-import android.widget.ImageButton
-import android.widget.Spinner
-import android.widget.SpinnerAdapter
+import android.widget.*
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.google.android.material.textfield.TextInputLayout
+import io.rosal.starcentral.R
+import io.rosal.starcentral.data.ChargeList
+import io.rosal.starcentral.data.WorkItem
 import java.util.*
 
 
 class WorkFormFragment : Fragment() {
 
+    companion object {
+        private const val TAG = "WorkFormFragment"
+    }
+
+    private  val testData = arrayOf(
+        "Lincoln Square",
+        "Arch Luxury Apartments",
+        "The Commonwealth",
+        "Sevilla Court"
+    )
+
     private lateinit var layout: View
-    private lateinit var submitButton : Button
-    private lateinit var calanderButton: ImageButton
+    private lateinit var continueButton : Button
+    private lateinit var calendarButton: ImageButton
     private lateinit var dateInputLayout : TextInputLayout
-    lateinit var spinner : Spinner
+    private lateinit var descriptorInputLayout: TextInputLayout
+    private lateinit var spinner : Spinner
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         layout = inflater.inflate(R.layout.fragment_work_form, container, false)
-        submitButton = layout.findViewById(R.id.submitButton)
+        continueButton = layout.findViewById(R.id.submitButton)
         spinner = layout.findViewById(R.id.spinner)
-        calanderButton = layout.findViewById(R.id.calandarImageButton)
+        calendarButton = layout.findViewById(R.id.calendarImageButton)
         dateInputLayout = layout.findViewById(R.id.dateInputLayout)
+        descriptorInputLayout = layout.findViewById(R.id.descriptorInputLayout)
         return layout
     }
 
@@ -43,10 +51,14 @@ class WorkFormFragment : Fragment() {
         setupSpinner()
         setupCalendarButton()
 
-        submitButton.setOnClickListener {
-            //TODO add to list here
-
-
+        continueButton.setOnClickListener {
+            val workItem = WorkItem(
+                spinner.selectedItem.toString(),
+                dateInputLayout.editText?.text.toString(),
+                descriptorInputLayout.editText?.text.toString(),
+                ChargeList()
+            )
+            //TODO pass this workItem to the next fragment and perform actions on the charge list
             Navigation.findNavController(layout).navigate(R.id.action_workFormFragment_to_dashboardFragment)
         }
     }
@@ -57,22 +69,18 @@ class WorkFormFragment : Fragment() {
         val month = cal.get(Calendar.MONTH)
         val year = cal.get(Calendar.YEAR)
 
-        calanderButton.setOnClickListener {
+        calendarButton.setOnClickListener {
 
         }
     }
 
     private fun setupSpinner() {
-
-        val propertyNames = arrayOf("Lincoln Square", "Arch Luxury Apartments", "The Commonwealth", "Sevilla Court")
-
-        val arrayAdapter = ArrayAdapter(requireContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, propertyNames)
+        val arrayAdapter = ArrayAdapter(requireContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, testData)
         spinner.adapter = arrayAdapter
 
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                val currentValue = parent?.getItemAtPosition(p2)
-                Log.d("WorkFormFrag", "$currentValue selected")
+                //No need to do anything
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
