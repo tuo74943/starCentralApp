@@ -19,14 +19,18 @@
         android:label="fragment_work_form"
         tools:layout="@layout/fragment_work_form" >
         <action
-            android:id="@+id/action_workFormFragment_to_dashboardFragment"
-            app:destination="@id/dashboardFragment"
-            app:popUpTo="@id/dashboardFragment"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_workFormFragment_to_additionFragment"
+            app:destination="@id/additionFragment" />
     </fragment>
     <fragment
         android:id="@+id/additionFragment"
         android:name="io.rosal.starcentral.fragments.AdditionalFormFragment"
         android:label="fragment_addition"
-        tools:layout="@layout/fragment_addtional_form" />
+        tools:layout="@layout/fragment_addtional_form" >
+        <action
+            android:id="@+id/action_additionFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@id/dashboardFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

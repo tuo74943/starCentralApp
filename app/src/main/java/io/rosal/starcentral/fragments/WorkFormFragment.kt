@@ -59,7 +59,7 @@ class WorkFormFragment : Fragment() {
                 ChargeList()
             )
             //TODO pass this workItem to the next fragment and perform actions on the charge list
-            Navigation.findNavController(layout).navigate(R.id.action_workFormFragment_to_dashboardFragment)
+            Navigation.findNavController(layout).navigate(R.id.action_workFormFragment_to_additionFragment)
         }
     }
 

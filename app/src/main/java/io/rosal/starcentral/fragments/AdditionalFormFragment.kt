@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import androidx.core.view.isGone
+import androidx.navigation.Navigation
 import com.google.android.material.textfield.TextInputLayout
 import io.rosal.starcentral.R
 import io.rosal.starcentral.data.Charge
@@ -24,6 +25,7 @@ class AdditionalFormFragment : Fragment() {
     private lateinit var customTextInputLayout: TextInputLayout
     private lateinit var detailsTextInputLayout: TextInputLayout
     private lateinit var addButton : Button
+    private lateinit var submitButton : Button
 
     private lateinit var selection : String
 
@@ -54,6 +56,7 @@ class AdditionalFormFragment : Fragment() {
         customTextInputLayout = layout.findViewById(R.id.customTextInputLayout)
         detailsTextInputLayout = layout.findViewById(R.id.detailTextInputLayout)
         addButton = layout.findViewById(R.id.submitAdditiveButton)
+        submitButton = layout.findViewById(R.id.chargeSubmitButton)
         return layout
     }
 
@@ -72,6 +75,11 @@ class AdditionalFormFragment : Fragment() {
                 selection = p0!!.getItemAtPosition(0).toString()
             }
 
+        }
+
+        submitButton.setOnClickListener{
+            //TODO add item to list in view-model
+            Navigation.findNavController(layout).navigate(R.id.action_additionFragment_to_dashboardFragment)
         }
 
         addButton.setOnClickListener {
